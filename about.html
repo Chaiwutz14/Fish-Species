@@ -1,128 +1,153 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คณะผู้จัดทำ - สายพันธุ์ปลาน้ำจืด</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คณะผู้จัดทำ | คลังความรู้ปลาน้ำจืดไทย</title>
+  <meta name="description" content="คณะผู้จัดทำและวัตถุประสงค์ของโครงการคลังความรู้ปลาน้ำจืดไทย พัฒนาโดยศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอเมืองพัทลุง">
+  <meta name="theme-color" content="#0a4a54">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="Logo"></a>
-            <ul class="nav-links">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="species.html">ข้อมูลสายพันธุ์</a></li>
-                <li><a href="news.html">ข่าวสาร/วิดีโอ</a></li>
-                <li><a href="about.html" class="active">ผู้จัดทำ</a></li>
-            </ul>
-        </div>
-    </nav>
+  <div id="site-nav"></div>
 
-    <header class="hero hero-small">
-        <div class="hero-content">
-            <h1>คณะผู้จัดทำโครงงาน</h1>
-            <p>รายชื่อสมาชิกกลุ่มและข้อมูลโครงงาน</p>
-        </div>
-    </header>
-
-    <section class="about-section">
-        <h2 class="section-title">สมาชิกในกลุ่ม</h2>
-        
-        <div class="team-grid">
-            <div class="team-card" onclick="openModal(this)"> 
-                <img src="images/เฉลิมศักดิ์.jpg" alt="รูปสมาชิก 3">
-                <h3>เฉลิมศักย์ อินทร์นาค</h3>
-                <p class="team-role">หัวหน้ากลุ่ม</p>
-                <p class="team-duty">หน้าที่: จัดทำเว็บไซต์</p>
-            </div>
-
-            <div class="team-card" onclick="openModal(this)"> 
-                <img src="images/กิตติพงศ์.jpg" alt="รูปสมาชิก 2">
-                <h3>กิตติพงศ์ ชูเพชร</h3>
-                <p class="team-role">รองหัวหน้า</p>
-                <p class="team-duty">หน้าที่: รวบรวมข้อมูลพันธุ์ปลา</p>
-            </div>
-
-           <div class="team-card" onclick="openModal(this)"> 
-                <img src="images/คัมภีร์.jpg" alt="รูปสมาชิก 1">
-                <h3>คัมภีร์ ขำแก้ว</h3>
-                <p class="team-role">สมาชิก</p>
-                <p class="team-duty">หน้าที่: ออกแบบกราฟิก</p>
-            </div>
-
-            <div class="team-card" onclick="openModal(this)"> 
-                <img src="images/ปริญญา.jpg" alt="รูปสมาชิก 4">
-                <h3>ปริญญา กลับโนรา</h3>
-                <p class="team-role">สมาชิก</p>
-                <p class="team-duty">หน้าที่: จัดทำรูปเล่มรายงาน</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section bg-gray">
-        <div class="about-content">
-            <h2>วัตถุประสงค์ของโครงงาน</h2>
-            <div class="objective-list">
-                <p>1. เพื่อรวบรวมข้อมูลสายพันธุ์ปลาน้ำจืดในท้องถิ่น</p>
-                <p>2. เพื่อสร้างสื่อการเรียนรู้ในรูปแบบเว็บไซต์ที่ทันสมัย</p>
-                <p>3. เพื่อปลูกจิตสำนึกในการอนุรักษ์ทรัพยากรธรรมชาติ</p>
-            </div>
-
-            <div class="divider"></div>
-            
-            <h3>ครูที่ปรึกษาโครงงาน</h3>
-            <p>คุณครู [ชื่อ-นามสกุล ครูที่ปรึกษา]</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>จัดทำโดย [ชื่อของคุณ] | โครงการวิชาวิทยาศาสตร์</p>
-    </footer>
-<div id="profileModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="modal-body">
-                <img id="modalImg" src="" alt="Profile">
-                <div class="modal-text">
-                    <h2 id="modalName">ชื่อสมาชิก</h2>
-                    <p id="modalRole" class="team-role">ตำแหน่ง</p>
-                    <hr>
-                    <p id="modalDuty">รายละเอียดหน้าที่...</p>
-                    <p class="more-info">"ความพยายามอยู่ที่ไหน ความสำเร็จอยู่ที่นั่น"</p> </div>
-            </div>
-        </div>
+  <header class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="เส้นทาง"><a href="index.html">หน้าแรก</a> / ผู้จัดทำ</nav>
+      <h1>คณะผู้จัดทำ</h1>
+      <p>รายชื่อสมาชิกและข้อมูลโครงการสื่อการเรียนรู้ปลาน้ำจืดไทย</p>
     </div>
+  </header>
 
-    <script>
-        // ฟังก์ชันเปิดหน้าต่าง (เมื่อคลิกที่การ์ด)
-        function openModal(element) {
-            var modal = document.getElementById("profileModal");
-            
-            // ดึงข้อมูลจากการ์ดที่คลิก มาใส่ใน Modal
-            document.getElementById("modalImg").src = element.querySelector("img").src;
-            document.getElementById("modalName").innerText = element.querySelector("h3").innerText;
-            document.getElementById("modalRole").innerText = element.querySelector(".team-role").innerText;
-            document.getElementById("modalDuty").innerText = element.querySelector(".team-duty").innerText;
+  <!-- ===================== TEAM ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">ทีมงาน</span>
+        <h2>สมาชิกในกลุ่ม</h2>
+        <p>แตะที่การ์ดเพื่อดูรายละเอียดหน้าที่ของสมาชิกแต่ละคน</p>
+        <div class="divider-fish"></div>
+      </div>
 
-            // แสดงหน้าต่าง
-            modal.style.display = "flex";
-        }
+      <div class="team-grid" id="teamGrid" data-reveal>
+        <button class="team-card" type="button"
+          data-name="เฉลิมศักย์ อินทร์นาค" data-role="หัวหน้ากลุ่ม"
+          data-duty="ดูแลภาพรวมโครงการและจัดทำเว็บไซต์" data-img="images/เฉลิมศักดิ์.jpg">
+          <img class="team-avatar" src="images/เฉลิมศักดิ์.jpg" alt="เฉลิมศักย์ อินทร์นาค">
+          <h3>เฉลิมศักย์ อินทร์นาค</h3>
+          <span class="team-role">หัวหน้ากลุ่ม</span>
+          <p class="team-duty">จัดทำเว็บไซต์</p>
+        </button>
 
-        // ฟังก์ชันปิดหน้าต่าง (เมื่อกดกากบาท)
-        function closeModal() {
-            document.getElementById("profileModal").style.display = "none";
-        }
+        <button class="team-card" type="button"
+          data-name="กิตติพงศ์ ชูเพชร" data-role="รองหัวหน้ากลุ่ม"
+          data-duty="รวบรวมและตรวจสอบข้อมูลสายพันธุ์ปลา" data-img="images/กิตติพงศ์.jpg">
+          <img class="team-avatar" src="images/กิตติพงศ์.jpg" alt="กิตติพงศ์ ชูเพชร">
+          <h3>กิตติพงศ์ ชูเพชร</h3>
+          <span class="team-role">รองหัวหน้ากลุ่ม</span>
+          <p class="team-duty">รวบรวมข้อมูลพันธุ์ปลา</p>
+        </button>
 
-        // ฟังก์ชันปิดหน้าต่าง (เมื่อคลิกที่พื้นหลังว่างๆ)
-        window.onclick = function(event) {
-            var modal = document.getElementById("profileModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+        <button class="team-card" type="button"
+          data-name="คัมภีร์ ขำแก้ว" data-role="สมาชิก"
+          data-duty="ออกแบบกราฟิกและจัดเตรียมภาพประกอบ" data-img="images/คัมภีร์.jpg">
+          <img class="team-avatar" src="images/คัมภีร์.jpg" alt="คัมภีร์ ขำแก้ว">
+          <h3>คัมภีร์ ขำแก้ว</h3>
+          <span class="team-role">สมาชิก</span>
+          <p class="team-duty">ออกแบบกราฟิก</p>
+        </button>
+
+        <button class="team-card" type="button"
+          data-name="ปริญญา กลับโนรา" data-role="สมาชิก"
+          data-duty="จัดทำรูปเล่มรายงานและเรียบเรียงเนื้อหา" data-img="images/ปริญญา.jpg">
+          <img class="team-avatar" src="images/ปริญญา.jpg" alt="ปริญญา กลับโนรา">
+          <h3>ปริญญา กลับโนรา</h3>
+          <span class="team-role">สมาชิก</span>
+          <p class="team-duty">จัดทำรูปเล่มรายงาน</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECT INFO ===================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="info-panel" data-reveal style="max-width:820px;margin:0 auto">
+        <h2>🎯 วัตถุประสงค์ของโครงการ</h2>
+        <ul class="objective">
+          <li><span class="n">1</span><span>เพื่อรวบรวมและเผยแพร่ข้อมูลสายพันธุ์ปลาน้ำจืดไทยอย่างถูกต้องและครบถ้วน</span></li>
+          <li><span class="n">2</span><span>เพื่อสร้างสื่อการเรียนรู้ออนไลน์ที่ทันสมัย เข้าถึงง่าย และใช้งานได้จริงสำหรับทุกวัย</span></li>
+          <li><span class="n">3</span><span>เพื่อปลูกจิตสำนึกในการอนุรักษ์ปลาน้ำจืดและทรัพยากรแหล่งน้ำของไทย</span></li>
+          <li><span class="n">4</span><span>เพื่อส่งเสริมการเรียนรู้ตลอดชีวิตของประชาชนในชุมชนโดยไม่มีค่าใช้จ่าย</span></li>
+        </ul>
+
+        <div class="divider-fish" style="margin:26px 0"></div>
+
+        <h2>📚 เกี่ยวกับสื่อการเรียนรู้</h2>
+        <p class="lead">เว็บไซต์นี้เป็นสื่อการเรียนรู้เพื่อการศึกษา เผยแพร่ฟรีเพื่อสาธารณประโยชน์
+          รวบรวมข้อมูลจากแหล่งความรู้ด้านการประมงและการอนุรักษ์สัตว์น้ำ นำเสนอในรูปแบบที่เข้าใจง่าย
+          เพื่อให้ผู้เรียนทุกช่วงวัยได้รู้จักและเห็นคุณค่าของปลาน้ำจืดไทย</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band" data-reveal>
+        <h2>อยากรู้จักปลาไทยให้มากขึ้น?</h2>
+        <p>สำรวจสายพันธุ์ปลาน้ำจืดไทยพร้อมข้อมูลเชิงลึกในแต่ละชนิด</p>
+        <a href="species.html" class="btn btn-outline">🐟 ไปที่หน้าสายพันธุ์ปลา</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="ปิด">&times;</button>
+      <img id="modalImg" src="" alt="">
+      <h2 id="modalName"></h2>
+      <span class="team-role" id="modalRole"></span>
+      <p class="team-duty" id="modalDuty" style="margin-top:8px"></p>
+      <p class="modal-quote">“ความพยายามอยู่ที่ไหน ความสำเร็จอยู่ที่นั่น”</p>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var modal = document.getElementById("profileModal");
+      var grid = document.getElementById("teamGrid");
+      var img = document.getElementById("modalImg");
+      var name = document.getElementById("modalName");
+      var role = document.getElementById("modalRole");
+      var duty = document.getElementById("modalDuty");
+      var closeBtn = document.getElementById("modalClose");
+
+      function open(card) {
+        img.src = card.getAttribute("data-img");
+        img.alt = card.getAttribute("data-name");
+        name.textContent = card.getAttribute("data-name");
+        role.textContent = card.getAttribute("data-role");
+        duty.textContent = "หน้าที่: " + card.getAttribute("data-duty");
+        modal.classList.add("open");
+      }
+      function close() { modal.classList.remove("open"); }
+
+      grid.addEventListener("click", function (e) {
+        var card = e.target.closest(".team-card");
+        if (card) open(card);
+      });
+      closeBtn.addEventListener("click", close);
+      modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+    })();
+  </script>
 </body>
 </html>

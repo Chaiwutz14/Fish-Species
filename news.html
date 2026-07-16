@@ -1,72 +1,188 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ข่าวสารและวิดีโอ - สายพันธุ์ปลาน้ำจืด</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คลังความรู้ &amp; วิดีโอ | คลังความรู้ปลาน้ำจืดไทย</title>
+  <meta name="description" content="บทความความรู้เรื่องปลาน้ำจืดไทย ระบบนิเวศลุ่มน้ำ การอนุรักษ์ การเพาะเลี้ยง คำศัพท์น่ารู้ และวิดีโอสารคดี">
+  <meta name="theme-color" content="#0a4a54">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="Logo"></a>
-            <ul class="nav-links">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="species.html">ข้อมูลสายพันธุ์</a></li>
-                <li><a href="news.html" class="active">ข่าวสาร/วิดีโอ</a></li>
-                <li><a href="about.html">ผู้จัดทำ</a></li>
-            </ul>
+  <div id="site-nav"></div>
+
+  <header class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="เส้นทาง"><a href="index.html">หน้าแรก</a> / คลังความรู้</nav>
+      <h1>คลังความรู้ &amp; วิดีโอ</h1>
+      <p>รวมบทความและสื่อการเรียนรู้เรื่องปลาน้ำจืดไทย ระบบนิเวศลุ่มน้ำ การอนุรักษ์ และการเพาะเลี้ยง</p>
+    </div>
+  </header>
+
+  <!-- ===================== KNOWLEDGE ARTICLES ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">บทความความรู้</span>
+        <h2>เข้าใจปลาน้ำจืดไทยอย่างรอบด้าน</h2>
+        <div class="divider-fish"></div>
+      </div>
+
+      <div data-reveal>
+        <article class="article">
+          <h3><span class="num">1</span> ความหลากหลายของปลาน้ำจืดไทย</h3>
+          <p>ประเทศไทยมีปลาน้ำจืดที่ค้นพบแล้วกว่า 1,200 ชนิด กระจายอยู่ในลุ่มน้ำสายหลักหลายสาย
+             ความหลากหลายนี้เกิดจากภูมิประเทศที่มีทั้งภูเขา ที่ราบลุ่ม และพื้นที่ชุ่มน้ำ
+             ทำให้เกิดถิ่นอาศัยหลากหลาย ตั้งแต่ลำธารต้นน้ำใสเย็น ไปจนถึงหนองบึงน้ำนิ่ง</p>
+          <ul>
+            <li><strong>ปลากินพืช</strong> เช่น ปลาตะเพียน ปลากระโห้ ช่วยควบคุมพืชน้ำ</li>
+            <li><strong>ปลากินเนื้อ/นักล่า</strong> เช่น ปลาช่อน ปลาชะโด ควบคุมประชากรสัตว์เล็ก</li>
+            <li><strong>ปลาหน้าดิน</strong> เช่น ปลาดุก ปลากด ทำหน้าที่ย่อยสลายซากอินทรีย์</li>
+          </ul>
+        </article>
+
+        <article class="article">
+          <h3><span class="num">2</span> ลุ่มน้ำสายหลักของไทย</h3>
+          <p>แหล่งอาศัยของปลาน้ำจืดผูกพันกับลุ่มน้ำ การเข้าใจลุ่มน้ำจึงช่วยเข้าใจการกระจายพันธุ์ของปลา</p>
+          <ul>
+            <li><strong>ลุ่มน้ำเจ้าพระยา–ท่าจีน–แม่กลอง</strong> ที่ราบลุ่มภาคกลาง แหล่งของปลาตะเพียน ปลากระโห้ ปลาสวาย</li>
+            <li><strong>ลุ่มน้ำโขง</strong> ภาคอีสานและภาคเหนือ ถิ่นของปลาบึกและปลาหนังขนาดใหญ่</li>
+            <li><strong>ลุ่มน้ำภาคใต้และทะเลสาบสงขลา</strong> ระบบนิเวศน้ำจืด–กร่อยที่มีปลาเฉพาะถิ่น</li>
+          </ul>
+        </article>
+
+        <article class="article">
+          <h3><span class="num">3</span> ภัยคุกคามต่อปลาน้ำจืดไทย</h3>
+          <p>ปลาหลายชนิดกำลังลดจำนวนลงอย่างน่าเป็นห่วง จากปัจจัยหลักดังนี้</p>
+          <ul>
+            <li><strong>การสร้างเขื่อนและฝาย</strong> ขวางเส้นทางอพยพและวางไข่ กระทบปลาบึกและปลาอพยพ</li>
+            <li><strong>มลพิษทางน้ำ</strong> จากโรงงาน เกษตรกรรม และชุมชน ทำให้คุณภาพน้ำเสื่อม</li>
+            <li><strong>การจับเกินขนาด</strong> โดยเฉพาะการใช้เครื่องมือผิดกฎหมายและจับในฤดูวางไข่</li>
+            <li><strong>ชนิดพันธุ์ต่างถิ่นรุกราน</strong> เช่น ปลาซัคเกอร์ ปลาหมอสีต่างถิ่น ที่แย่งอาหารและถิ่นอาศัย</li>
+          </ul>
+        </article>
+
+        <article class="article">
+          <h3><span class="num">4</span> แนวทางการอนุรักษ์ที่ทุกคนทำได้</h3>
+          <ul>
+            <li>ไม่จับปลาในฤดูวางไข่ (ช่วงฤดูฝน) และไม่จับปลาขนาดเล็กเกินไป</li>
+            <li>ไม่ปล่อยสัตว์น้ำต่างถิ่นลงแหล่งน้ำธรรมชาติ แม้ด้วยเจตนาทำบุญ</li>
+            <li>ไม่ทิ้งขยะและสารเคมีลงแม่น้ำลำคลอง ช่วยกันรักษาคุณภาพน้ำ</li>
+            <li>สนับสนุนการปล่อยพันธุ์ปลาพื้นเมืองที่ถูกต้อง และร่วมกิจกรรมฟื้นฟูแหล่งน้ำ</li>
+            <li>เรียนรู้และบอกต่อ สร้างความเข้าใจเรื่องคุณค่าของปลาไทยแก่คนรอบข้าง</li>
+          </ul>
+        </article>
+
+        <article class="article">
+          <h3><span class="num">5</span> พื้นฐานการเพาะเลี้ยงปลาน้ำจืด</h3>
+          <p>การเพาะเลี้ยงช่วยลดการจับปลาจากธรรมชาติ และเป็นอาชีพที่สร้างรายได้ หลักการเบื้องต้นมีดังนี้</p>
+          <ul>
+            <li><strong>เลือกชนิดให้เหมาะกับพื้นที่</strong> เช่น ปลานิลและปลาดุกเลี้ยงง่าย ทนทาน เหมาะกับผู้เริ่มต้น</li>
+            <li><strong>คุณภาพน้ำ</strong> รักษาค่า pH 6.5–8.5 มีออกซิเจนเพียงพอ และเปลี่ยนถ่ายน้ำสม่ำเสมอ</li>
+            <li><strong>อาหารและการให้อาหาร</strong> เลือกโปรตีนให้เหมาะกับชนิดปลา ให้พอดี ไม่เหลือจนน้ำเสีย</li>
+            <li><strong>การจัดการโรค</strong> สังเกตพฤติกรรมปลา คัดแยกปลาป่วย และรักษาความสะอาดบ่อ</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GLOSSARY ===================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">คำศัพท์น่ารู้</span>
+        <h2>อภิธานศัพท์เรื่องปลา</h2>
+        <div class="divider-fish"></div>
+      </div>
+      <div class="glossary" data-reveal>
+        <dl class="term"><dt>Mouthbrooder (ฟักไข่ในปาก)</dt><dd>พฤติกรรมที่ปลาอมไข่และลูกไว้ในปากเพื่อป้องกันศัตรู เช่น ปลานิล</dd></dl>
+        <dl class="term"><dt>ปลาอพยพ (Migratory fish)</dt><dd>ปลาที่ว่ายอพยพระยะไกลเพื่อหากินหรือวางไข่ตามฤดูกาล เช่น ปลาบึก</dd></dl>
+        <dl class="term"><dt>อวัยวะช่วยหายใจ</dt><dd>อวัยวะพิเศษที่ช่วยให้ปลาหายใจจากอากาศได้ พบในปลาช่อนและปลาดุก</dd></dl>
+        <dl class="term"><dt>ปลาหนัง (Catfish)</dt><dd>ปลาไม่มีเกล็ด ผิวลื่น มักมีหนวด เช่น ปลาดุก ปลาบึก ปลาสวาย</dd></dl>
+        <dl class="term"><dt>IUCN Red List</dt><dd>บัญชีสถานะการอนุรักษ์สิ่งมีชีวิตระดับสากล ใช้บอกความเสี่ยงต่อการสูญพันธุ์</dd></dl>
+        <dl class="term"><dt>ชนิดพันธุ์ต่างถิ่น</dt><dd>สิ่งมีชีวิตที่ไม่ใช่ถิ่นเดิม ซึ่งอาจรุกรานและกระทบระบบนิเวศดั้งเดิม</dd></dl>
+        <dl class="term"><dt>ปลาแปลงเพศ</dt><dd>การใช้เทคนิคเพื่อให้ได้ปลาเพศผู้ล้วน ทำให้โตเร็วและควบคุมประชากรได้ เช่น ปลานิล</dd></dl>
+        <dl class="term"><dt>ระบบข้าว–ปลา</dt><dd>การเลี้ยงปลาร่วมกับการทำนา ช่วยเพิ่มรายได้และควบคุมศัตรูพืชตามธรรมชาติ</dd></dl>
+        <dl class="term"><dt>วังน้ำ</dt><dd>บริเวณน้ำลึกในแม่น้ำที่เป็นแหล่งหลบภัยและอาศัยของปลาขนาดใหญ่</dd></dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIDEOS ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">สื่อวิดีโอ</span>
+        <h2>สารคดีและวิดีโอความรู้</h2>
+        <p>เรียนรู้เพิ่มเติมผ่านวิดีโอที่คัดสรร (ต้องเชื่อมต่ออินเทอร์เน็ตเพื่อรับชม)</p>
+        <div class="divider-fish"></div>
+      </div>
+
+      <div class="video-grid" data-reveal>
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/QX5qpxcblP0" title="153 ปลาน้ำจืดที่พบได้ในประเทศไทย" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>153 ปลาน้ำจืดที่พบได้ในประเทศไทย (ฉบับมัดรวม)</h3>
+            <p>รวบรวมชนิดปลาน้ำจืดที่พบได้ในประเทศไทยแบบเข้าใจง่าย</p>
+          </div>
         </div>
-    </nav>
 
-    <header class="hero" style="height: 300px;"> <div class="hero-content">
-            <h1>คลังความรู้และวิดีโอ</h1>
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/7qdjILqqQg8" title="ความรู้พื้นฐานการขยายพันธุ์ปลาน้ำจืด" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>ความรู้พื้นฐานการขยายพันธุ์ปลาน้ำจืด</h3>
+            <p>เทคนิคการเพาะและขยายพันธุ์ปลาน้ำจืดเพื่อเศรษฐกิจ</p>
+          </div>
         </div>
-    </header>
 
-    <section class="container news-section">
-        <h2>สารคดีที่น่าสนใจ</h2>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/QX5qpxcblP0?si" title="YouTube video" allowfullscreen></iframe>
-                </div>
-                <h3>153 ปลาน้ำจืด ที่พบได้ในประเทศไทย (ฉบับมัดรวม)</h3>
-                <p>เรียนรู้ชนิดปลาน้ำจืดที่พบได้ในประเทศไทย</p>
-            </div>
-            
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/7qdjILqqQg8?" title="YouTube video" allowfullscreen></iframe>
-                </div>
-                <h3>ความรู้พื้นฐานการขยายพันธ์ุปลาน้ำจืด</h3>
-                <p>เทคนิคการเพาะพันธุ์และขยายพันธุ์ปลาน้ำจืดเพื่อเศรษฐกิจ</p>
-            </div>
-
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/3ctsqtYh8D4?si" title="YouTube video" allowfullscreen></iframe>
-                </div>
-                <h3>7 ชนิดปลาน้ำจืดไทย | ตัวใหญ่ๆเนื้ออร่อย</h3>
-                <p>รวบรวมข้อมูลปลาน้ำจืดไทยที่น่ารับประทาน</p>
-            </div>
-
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/Yn2VGPkOOjQ?si" title="YouTube video" allowfullscreen></iframe>
-                </div>
-                <h3>แหล่งจำหน่ายพันธุ์ปลาน้ำจืดทุกชนิด [ เรื่องเล่าชาวเกษตร ]</h3>
-                <p>รายการเรื่องเล่าชาวเกษตร รายการที่นำเสนอเรื่องราวของเกษตรกรและการเกษตรในทุกรูปแบบ</p>
-            </div>
-
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/3ctsqtYh8D4" title="7 ชนิดปลาน้ำจืดไทย" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>7 ชนิดปลาน้ำจืดไทย ตัวใหญ่เนื้ออร่อย</h3>
+            <p>แนะนำปลาน้ำจืดไทยที่นิยมบริโภคและมีคุณค่าทางเศรษฐกิจ</p>
+          </div>
         </div>
-    </section>
 
-    <footer>
-        <p>จัดทำโดย [ชื่อของคุณ] | โครงการวิชาวิทยาศาสตร์</p>
-    </footer>
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Yn2VGPkOOjQ" title="แหล่งจำหน่ายพันธุ์ปลาน้ำจืด" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>แหล่งจำหน่ายพันธุ์ปลาน้ำจืด | เรื่องเล่าชาวเกษตร</h3>
+            <p>เรื่องราวของเกษตรกรและการเพาะเลี้ยงปลาน้ำจืดในหลายรูปแบบ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="section section--tight">
+    <div class="container">
+      <div class="notice" data-reveal>
+        <span class="ic" aria-hidden="true">🛡️</span>
+        <div>
+          <strong>ร่วมกันรักษามรดกแห่งสายน้ำไทย</strong>
+          ปลาบึกและปลากระโห้อยู่ในสถานะใกล้สูญพันธุ์อย่างยิ่ง การเรียนรู้และปรับพฤติกรรมของเราทุกคน
+          คือพลังสำคัญในการรักษาความหลากหลายของปลาน้ำจืดไทยไว้ให้คนรุ่นหลัง
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

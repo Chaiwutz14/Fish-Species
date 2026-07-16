@@ -1,161 +1,59 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายชื่อปลาทั้งหมด - สายพันธุ์ปลาน้ำจืดไทย</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สายพันธุ์ปลาน้ำจืดไทย | คลังความรู้ปลาน้ำจืดไทย</title>
+  <meta name="description" content="รวมสายพันธุ์ปลาน้ำจืดไทย ค้นหาและกรองตามหมวดหมู่ ปลาเศรษฐกิจ ปลาหายาก ปลาพื้นเมือง พร้อมข้อมูลเชิงลึกรายชนิด">
+  <meta name="theme-color" content="#0a4a54">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="Logo"></a>
-            <ul class="nav-links">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="species.html" class="active">ข้อมูลสายพันธุ์</a></li>
-                <li><a href="news.html">ข่าวสาร/วิดีโอ</a></li>
-                <li><a href="about.html">ผู้จัดทำ</a></li>
-            </ul>
+  <div id="site-nav"></div>
+
+  <header class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="เส้นทาง"><a href="index.html">หน้าแรก</a> / สายพันธุ์ปลา</nav>
+      <h1>สายพันธุ์ปลาน้ำจืดไทย</h1>
+      <p>เรียนรู้ลักษณะ ถิ่นอาศัย พฤติกรรม การสืบพันธุ์ และสถานะการอนุรักษ์ของปลาน้ำจืดไทยแต่ละชนิด</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="toolbar">
+        <div class="filters" id="filters" role="group" aria-label="กรองตามหมวดหมู่">
+          <button class="filter-btn active" data-cat="all">ทั้งหมด</button>
+          <button class="filter-btn" data-cat="economic">🐟 ปลาเศรษฐกิจ</button>
+          <button class="filter-btn" data-cat="rare">🛡️ ปลาหายาก/อนุรักษ์</button>
+          <button class="filter-btn" data-cat="native">🌿 ปลาพื้นเมือง</button>
+          <button class="filter-btn" data-cat="beautiful">✨ ปลาสวยงาม</button>
         </div>
-    </nav>
-
-    <header class="hero" style="height: 300px;">
-        <div class="hero-content">
-            <h1>ข้อมูลสายพันธุ์ปลา</h1> 
-            <p>เรียนรู้ความแตกต่างของปลาน้ำจืดไทยแต่ละประเภท</p>
+        <div class="search-box">
+          <label for="searchInput" class="visually-hidden" style="position:absolute;left:-9999px">ค้นหาปลา</label>
+          <input type="search" id="searchInput" placeholder="ค้นหาชื่อไทย / อังกฤษ / ชื่อวิทยาศาสตร์...">
         </div>
-    </header>
+      </div>
 
-    <section class="container fish-section">
-        
-        <div class="category-filters">
-            <button class="filter-btn active" onclick="filterFish('all')">ทั้งหมด</button>
-            <button class="filter-btn" onclick="filterFish('economic')">🐟 ปลาเศรษฐกิจ</button>
-            <button class="filter-btn" onclick="filterFish('rare')">🌊 ปลาหายาก/อนุรักษ์</button>
-            <button class="filter-btn" onclick="filterFish('beautiful')">✨ ปลาสวยงาม</button>
-        </div>
+      <p class="result-count" id="resultCount"></p>
 
-        <div style="text-align: right; margin-bottom: 20px;">
-            <input type="text" id="searchInput" placeholder="ค้นหาชื่อปลา..." onkeyup="searchFish()" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; width: 100%; max-width: 300px;">
-        </div>
+      <div class="species-grid" id="speciesGrid"></div>
+      <div class="empty-state" id="emptyState" style="display:none">
+        😔 ไม่พบสายพันธุ์ที่ตรงกับการค้นหา ลองเปลี่ยนคำค้นหรือหมวดหมู่ดูอีกครั้ง
+      </div>
 
-        <div class="fish-grid">
-            <div class="fish-card" data-category="beautiful economic">
-                <img src="images/ปลาตะเพียน.jpg" alt="ปลาตะเพียน">
-                <div class="card-info">
-                    <h3>ปลาตะเพียน</h3>
-                    <p>ชื่อวิทยาศาสตร์: Barbonymus gonionotus</p>
-                    <span class="badge yellow">ปลาสวยงาม</span>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
+    </div>
+  </section>
 
-            <div class="fish-card" data-category="rare">
-                <img src="images/ปลากระโห้.jfif" alt="ปลากระโห้"> 
-                <div class="card-info">
-                    <h3>ปลากระโห้</h3>
-                    <p>ชื่อวิทยาศาสตร์: Catlocarpio siamensis</p>
-                    <span class="badge blue">ปลาหายาก</span>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
+  <div id="site-footer"></div>
 
-             <div class="fish-card" data-category="economic">
-                <img src="images/ปลานิล.png" alt="ปลานิล"> 
-                <div class="card-info">
-                    <h3>ปลานิล</h3>
-                    <p>ชื่อวิทยาศาสตร์: Oreochromis niloticus</p> 
-                    <span class="badge green">ปลาเศรษฐกิจ</span>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
-
-            <div class="fish-card" data-category="rare">
-                <img src="images/ปลาบึก.jfif" alt="ปลาบึก">
-                <div class="card-info">
-                    <h3>ปลาบึก</h3>
-                    <p>ชื่อวิทยาศาสตร์: Pangasianodon gigas</p>
-                    <span class="badge blue">ปลาหายาก</span>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
-
-            <div class="fish-card" data-category="economic">
-                <img src="images/ปลาดุก.jpg" alt="ปลาดุก"> 
-                <div class="card-info">
-                    <h3>ปลาดุกด้าน</h3>
-                    <p>ชื่อวิทยาศาสตร์: Clarias batrachus</p>
-                    <span class="badge green">ปลาเศรษฐกิจ</span>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
-
-            <div class="fish-card" data-category="economic">
-                <img src="images/ปลาช่อน.jfif" alt="ปลาช่อน"> 
-                <div class="card-info">
-                    <h3>ปลาช่อน</h3> 
-                    <p>ชื่อวิทยาศาสตร์: Channa striata</p>
-                    <span class="badge green">ปลาเศรษฐกิจ</span>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="modern-footer">
-        <div class="container">
-            <div class="footer-info">
-                <h3>🐟 สายพันธุ์ปลาน้ำจืดยอดนิยม</h3>
-                <p>🏫 ศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอเมืองพัทลุง</p>
-            </div>
-            <div class="footer-credit">
-                <p>&copy; 2025 สงวนลิขสิทธิ์ | พัฒนาเว็บไซต์ด้วย ❤️ โดย [ชื่อของคุณ]</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function filterFish(category) {
-            // 1. จัดการปุ่ม Active (เปลี่ยนสีปุ่มที่กด)
-            var buttons = document.getElementsByClassName("filter-btn");
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            event.currentTarget.classList.add("active");
-
-            // 2. กรองการ์ดปลา
-            var cards = document.getElementsByClassName("fish-card");
-            for (var i = 0; i < cards.length; i++) {
-                var cardCategory = cards[i].getAttribute("data-category");
-                
-                if (category === "all" || cardCategory.includes(category)) {
-                    cards[i].style.display = "block"; // แสดง
-                } else {
-                    cards[i].style.display = "none"; // ซ่อน
-                }
-            }
-        }
-
-        // ฟังก์ชันค้นหาด้วยชื่อ
-        function searchFish() {
-            var input = document.getElementById("searchInput");
-            var filter = input.value.toUpperCase();
-            var cards = document.getElementsByClassName("fish-card");
-
-            for (var i = 0; i < cards.length; i++) {
-                var title = cards[i].getElementsByTagName("h3")[0];
-                var txtValue = title.textContent || title.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
-
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/species.js"></script>
 </body>
 </html>

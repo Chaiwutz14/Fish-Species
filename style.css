@@ -1,592 +1,750 @@
-/* =========================================
-   1. ส่วนตั้งค่าพื้นฐาน (Global Styles)
-   ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =======================================================================
+   คลังความรู้ปลาน้ำจืดไทย — ระบบดีไซน์ (Design System)
+   ศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอเมืองพัทลุง
+   แนวทาง: Mobile-first, เข้าถึงง่าย (accessible), โทนมืออาชีพ
+   -----------------------------------------------------------------------
+   สารบัญ
+   1.  ตัวแปรสี/โทเคน (Design Tokens)
+   2.  รีเซ็ต & พื้นฐาน (Base)
+   3.  โครงสร้าง & ยูทิลิตี้ (Layout / Utilities)
+   4.  แถบเมนู (Navbar)
+   5.  ปุ่ม (Buttons)
+   6.  ภาพปก (Hero)
+   7.  ส่วนหัวข้อ (Section headers)
+   8.  สถิติ (Stats)
+   9.  หมวดหมู่ / จุดเด่น (Category & Feature cards)
+   10. การ์ดปลา (Species cards)
+   11. เครื่องมือค้นหา/กรอง (Toolbar)
+   12. หน้ารายละเอียดปลา (Species detail)
+   13. หน้าคลังความรู้ (Knowledge / video / articles)
+   14. หน้าผู้จัดทำ (About / team / modal)
+   15. ส่วนท้าย (Footer)
+   16. องค์ประกอบเสริม (Back-to-top / reveal)
+   17. Responsive (Tablet / Desktop)
+   ======================================================================= */
+
+/* ============================== 1. TOKENS ============================== */
+:root {
+  /* สีหลัก — โทนน้ำลึก/เขียวมรกต สื่อถึงแหล่งน้ำและความน่าเชื่อถือ */
+  --teal-900: #06333a;
+  --teal-800: #0a4a54;
+  --teal-700: #0e6070;
+  --teal-600: #12808f;
+  --teal-500: #1a9bab;
+  --teal-100: #d6eef1;
+  --teal-050: #eef8f9;
+
+  /* สีรอง — ทองอบอุ่น สื่อถึงมาตรฐาน "ระดับสูง/พรีเมียม" */
+  --gold-600: #b8860b;
+  --gold-500: #d9a521;
+  --gold-400: #eec25a;
+  --gold-100: #faf0d4;
+
+  /* สีสถานะ */
+  --green: #1f9d55;
+  --amber: #d98324;
+  --orange: #e8710a;
+  --red: #c0392b;
+  --crimson: #a51c30;
+
+  /* กลาง (Neutrals) */
+  --ink: #16242a;
+  --ink-soft: #3d545c;
+  --muted: #6b7f86;
+  --line: #e2e9ea;
+  --surface: #ffffff;
+  --surface-2: #f4f8f8;
+  --bg: #f7fafb;
+
+  /* ตัวอักษร */
+  --font: "Prompt", "Noto Sans Thai", "Sarabun", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* เงา */
+  --shadow-sm: 0 2px 6px rgba(6, 51, 58, 0.06);
+  --shadow-md: 0 8px 24px rgba(6, 51, 58, 0.10);
+  --shadow-lg: 0 18px 44px rgba(6, 51, 58, 0.16);
+
+  /* ระยะ/มุมโค้ง */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --container: 1180px;
+
+  --header-h: 68px;
 }
+
+/* ============================== 2. BASE =============================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
-    font-family: 'Prompt', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.7;
+  font-size: 16px;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
+img { max-width: 100%; display: block; }
+a { color: var(--teal-700); text-decoration: none; }
+a:hover { color: var(--teal-500); }
+
+h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; color: var(--teal-900); }
+
+/* โฟกัสเพื่อการเข้าถึง (คีย์บอร์ด) */
+:focus-visible {
+  outline: 3px solid var(--gold-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================== 3. LAYOUT ============================= */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 18px;
 }
 
-a {
-    text-decoration: none;
+.section { padding: 52px 0; }
+.section--tight { padding: 36px 0; }
+.section--alt { background: var(--surface); }
+.section--deep {
+  background: linear-gradient(160deg, var(--teal-800), var(--teal-900));
+  color: #eaf6f7;
 }
+.section--deep h2, .section--deep h3 { color: #ffffff; }
 
-/* =========================================
-   2. เมนู (Navbar)
-   ========================================= */
+.text-center { text-align: center; }
+.lead { font-size: 1.05rem; color: var(--ink-soft); }
+
+/* ============================== 4. NAVBAR ============================ */
 .navbar {
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-h);
+}
+.brand { display: flex; align-items: center; gap: 10px; color: var(--teal-900); }
+.brand-mark {
+  font-size: 1.6rem;
+  background: var(--teal-050);
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--teal-100);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-title { font-weight: 600; font-size: 1.05rem; }
+.brand-sub { font-size: 0.72rem; color: var(--muted); font-weight: 300; }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px; height: 44px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
 }
-
-.logo img {
-    height: 40px;
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  margin: 0 auto;
+  background: var(--teal-800);
+  border-radius: 2px;
+  transition: transform .25s, opacity .25s;
 }
+.nav-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.is-active span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute;
+  top: var(--header-h); left: 0; right: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  padding: 12px 18px 18px;
 }
-
-.nav-links a {
-    color: #333;
-    font-weight: 500;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s;
+.nav-links.open { display: flex; }
+.nav-link {
+  display: block;
+  color: var(--ink);
+  font-weight: 400;
+  padding: 12px 14px;
+  border-radius: 10px;
+  transition: background .2s, color .2s;
 }
+.nav-link:hover { background: var(--teal-050); color: var(--teal-700); }
+.nav-link.active { background: var(--teal-700); color: #fff; }
 
-.nav-links a:hover, .nav-links a.active {
-    background-color: #007bff;
-    color: white;
+/* ============================== 5. BUTTONS =========================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .2s, background .2s, color .2s;
+  text-align: center;
+  line-height: 1.2;
 }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--teal-700); color: #fff; box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--teal-800); color: #fff; box-shadow: var(--shadow-md); }
+.btn-gold { background: var(--gold-500); color: #4a3608; }
+.btn-gold:hover { background: var(--gold-400); color: #4a3608; }
+.btn-outline { background: transparent; color: var(--teal-700); border-color: var(--teal-600); }
+.btn-outline:hover { background: var(--teal-700); color: #fff; }
+.btn-ghost-light { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.5); }
+.btn-ghost-light:hover { background: #fff; color: var(--teal-800); }
+.btn-sm { padding: 9px 18px; font-size: .9rem; }
 
-/* =========================================
-   3. ภาพปก (Hero Section)
-   ========================================= */
+/* ============================== 6. HERO ============================= */
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/แบนเนอร์โครงการ.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 400px; /* ปรับความสูงได้ที่นี่ */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-bottom: 0;
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background:
+    linear-gradient(120deg, rgba(6,51,58,.86), rgba(10,74,84,.72)),
+    url("images/แบนเนอร์โครงการ.jpg") center/cover no-repeat;
 }
-
+.hero::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 90px;
+  background: linear-gradient(to top, var(--bg), transparent);
+  pointer-events: none;
+}
+.hero-content { padding: 64px 0; max-width: 720px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.35);
+  padding: 6px 14px; border-radius: 999px;
+  font-size: .82rem; letter-spacing: .3px; margin-bottom: 18px;
+}
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 2.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-shadow: 0 2px 16px rgba(0,0,0,.35);
+  margin-bottom: 16px;
+}
+.hero p { font-size: 1.05rem; color: #e8f4f5; margin-bottom: 28px; font-weight: 300; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Hero ย่อย (หน้ารอง) */
+.page-hero {
+  background: linear-gradient(120deg, var(--teal-800), var(--teal-700));
+  color: #fff;
+  padding: 46px 0 40px;
+  text-align: center;
+  position: relative;
+}
+.page-hero h1 { color: #fff; font-size: 1.7rem; margin-bottom: 8px; }
+.page-hero p { color: #d5ecef; font-weight: 300; max-width: 640px; margin: 0 auto; }
+.breadcrumb {
+  font-size: .82rem; color: #bfe0e4; margin-bottom: 14px;
+}
+.breadcrumb a { color: #eafafb; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ============================== 7. SECTION HEAD ==================== */
+.section-head { max-width: 720px; margin: 0 auto 34px; text-align: center; }
+.section-head .kicker {
+  color: var(--gold-600); font-weight: 600; font-size: .85rem;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.section-head h2 { font-size: 1.7rem; margin: 8px 0 12px; }
+.section-head p { color: var(--ink-soft); }
+.divider-fish {
+  width: 64px; height: 3px; margin: 14px auto 0;
+  background: linear-gradient(90deg, var(--teal-500), var(--gold-500));
+  border-radius: 3px;
 }
 
-.btn-primary {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: background 0.3s;
+/* ============================== 8. STATS =========================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.stat-num { font-size: 1.9rem; font-weight: 700; color: var(--teal-700); line-height: 1; }
+.stat-num .unit { font-size: .95rem; font-weight: 500; color: var(--muted); }
+.stat-label { font-size: .85rem; color: var(--ink-soft); margin-top: 6px; }
+
+/* ============================== 9. CATEGORIES / FEATURES ========== */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.feature:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--teal-100); }
+.feature-icon {
+  font-size: 1.7rem;
+  width: 56px; height: 56px;
+  display: grid; place-items: center;
+  border-radius: 14px;
+  background: var(--teal-050);
+  border: 1px solid var(--teal-100);
+  margin-bottom: 16px;
+}
+.feature h3 { font-size: 1.12rem; margin-bottom: 8px; color: var(--teal-800); }
+.feature p { color: var(--ink-soft); font-size: .95rem; }
+
+/* การ์ดหมวดหมู่ (คลิกได้) */
+.cat-link { display: block; color: inherit; }
+.cat-link .feature-icon { background: var(--gold-100); border-color: #f0e0b0; }
+.cat-link:hover h3 { color: var(--teal-600); }
+
+/* ============================== 10. SPECIES CARDS ================= */
+.species-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.species-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+}
+.species-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.species-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--teal-050); }
+.species-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.species-card:hover .species-media img { transform: scale(1.06); }
+.species-status {
+  position: absolute; top: 12px; left: 12px;
+  font-size: .72rem; font-weight: 500;
+  padding: 4px 10px; border-radius: 999px;
+  color: #fff; backdrop-filter: blur(2px);
+}
+.st-safe { background: rgba(31,157,85,.92); }
+.st-near { background: rgba(217,131,36,.92); }
+.st-vuln { background: rgba(232,113,10,.92); }
+.st-endangered { background: rgba(192,57,43,.94); }
+.st-critical { background: rgba(165,28,48,.95); }
+
+.species-body { padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+.species-body h3 { font-size: 1.22rem; margin-bottom: 2px; }
+.species-sci { font-style: italic; color: var(--muted); font-size: .85rem; margin-bottom: 10px; }
+.species-tagline { color: var(--ink-soft); font-size: .92rem; margin-bottom: 14px; flex: 1; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.chip {
+  font-size: .72rem; font-weight: 500;
+  padding: 4px 10px; border-radius: 999px;
+  background: var(--teal-050); color: var(--teal-700);
+  border: 1px solid var(--teal-100);
+}
+.chip.cat-economic { background: #e6f6ec; color: #1f7a44; border-color: #c7ecd5; }
+.chip.cat-rare { background: #fdeaec; color: #a51c30; border-color: #f6ccd2; }
+.chip.cat-beautiful { background: #fbf1d8; color: #a9791a; border-color: #f2e0ac; }
+.chip.cat-native { background: #eaf3ee; color: #2c6d4d; border-color: #cfe6d9; }
+
+.species-cta { display: flex; align-items: center; justify-content: space-between; }
+.species-link { font-weight: 500; color: var(--teal-700); display: inline-flex; align-items: center; gap: 6px; }
+.species-link:hover { gap: 10px; }
+
+.empty-state {
+  text-align: center; padding: 50px 20px; color: var(--muted);
+  border: 1px dashed var(--line); border-radius: var(--radius); background: var(--surface);
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
+/* ============================== 11. TOOLBAR ====================== */
+.toolbar { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+.search-box { position: relative; }
+.search-box input {
+  width: 100%;
+  padding: 13px 16px 13px 44px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font);
+  font-size: 1rem;
+  background: var(--surface);
+  color: var(--ink);
 }
-
-/* =========================================
-   4. ส่วนเนื้อหาสาระ & ฟีเจอร์ (Info Section)
-   ========================================= */
-.info-section {
-    background-color: #ffffff;
-    padding: 60px 0;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+.search-box input:focus { outline: none; border-color: var(--teal-500); box-shadow: 0 0 0 4px var(--teal-050); }
+.search-box::before {
+  content: "🔍"; position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  font-size: .95rem; opacity: .6;
 }
-
-.info-header {
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-}
-
-.info-header h2 {
-    color: #004085;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* กล่อง 3 ช่อง (Features) */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.feature-box {
-    background: #f8f9fa;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-
-.feature-box:hover {
-    transform: translateY(-10px);
-    background: #eef7ff;
-}
-
-.feature-box .icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.feature-box h3 {
-    color: #007bff;
-    margin-bottom: 15px;
-}
-
-/* =========================================
-   5. รายชื่อปลา (Fish Grid)
-   ========================================= */
-.fish-section {
-    padding: 60px 0;
-}
-
-.fish-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #004085;
-    font-size: 2rem;
-}
-
-.fish-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.fish-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.fish-card:hover {
-    transform: translateY(-5px);
-}
-
-.fish-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-info {
-    padding: 20px;
-}
-
-.card-info h3 {
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.card-info p {
-    color: #777;
-    font-size: 0.9rem;
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.btn-small {
-    color: #007bff;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* =========================================
-   6. หน้าข่าวสาร/วิดีโอ (News/Video)
-   ========================================= */
-.news-section {
-    padding: 50px 0;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.video-card {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* อัตราส่วน 16:9 */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* =========================================
-   7. หน้าผู้จัดทำ (About Us)
-   ========================================= */
-.about-section {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.about-content {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    margin-bottom: 50px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.team-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.team-card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    width: 250px;
-    text-align: center;
-    
-/*ทำให้การขยับดูลื่นไหล ไม่กระตุก */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer; /* เปลี่ยนรูปเมาส์เป็นรูปนิ้วมือ */
-}
-
-/*สั่งให้ขยับเมื่อเมาส์ชี้ (Hover) */
-.team-card:hover {
-    transform: translateY(-10px) scale(1.02); /* ลอยขึ้น 10px และขยายใหญ่นิดนึง */
-    box-shadow: 0 15px 30px rgba(0,123,255,0.2); /* เงาสีฟ้าฟุ้งๆ */
-    border: 1px solid #007bff; /* เพิ่มขอบสีฟ้า */
-}
-
-.team-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 4px solid #007bff;
-}
-
-/* =========================================
-   8. ส่วนท้ายเว็บ (Footer)
-   ========================================= */
-/* --- Modern Footer Design --- */
-.modern-footer {
-    background-color: #1a252f; /* สีน้ำเงินเข้มเกือบดำ ดูแพง */
-    color: #ecf0f1; /* สีขาวนวล */
-    padding: 40px 0 20px 0;
-    margin-top: 60px;
-    font-size: 1.5rem;
-}
-
-.footer-info {
-    text-align: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #34495e; /* เส้นขีดคั่นบางๆ */
-    padding-bottom: 20px;
-}
-
-.footer-info h3 {
-    color: #3498db; /* สีฟ้าสว่าง */
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-.footer-credit {
-    text-align: center;
-    font-size: 0.85rem;
-    color: #bdc3c7; /* สีเทาอ่อน */
-}
-/* =========================================
-   9. เพิ่มเติมสำหรับหน้าเกี่ยวกับ (About CSS Update)
-   ========================================= */
-/* ปรับความสูง Hero สำหรับหน้าย่อย ให้เตี้ยลงกว่าหน้าแรก */
-.hero-small {
-    height: 300px;
-}
-
-/* หัวข้อกลางหน้า */
-.section-title {
-    text-align: center;
-    color: #488ad1;
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-/* บทบาทหน้าที่ (สีน้ำเงิน ตัวหนา) */
-.team-role {
-    color: #0243f7;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-/* รายละเอียดหน้าที่ (ตัวเล็กสีเทา) */
-.team-duty {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 5px;
-}
-
-/* พื้นหลังสีเทา สำหรับส่วนวัตถุประสงค์ */
-.bg-gray {
-    background-color: #f4f4f4;
-    border-top: 1px solid #eee;
-    margin-top: 20px;
-}
-
-/* จัดรายการวัตถุประสงค์ให้อ่านง่าย */
-.objective-list {
-    text-align: left;
-    margin-top: 20px;
-    line-height: 1.8;
-}
-
-/* เส้นขีดคั่น */
-.divider {
-    height: 1px;
-    background-color: #ddd;
-    margin: 30px 0;
-}
-
-/* =========================================
-   10. หน้าต่าง Popup (Modal CSS)
-   ========================================= */
-.modal {
-    display: none; /* ซ่อนไว้ก่อน */
-    position: fixed; 
-    z-index: 2000; /* ให้อยู่บนสุดทับทุกอย่าง */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6); /* พื้นหลังสีดำจางๆ */
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px); /* เบลอพื้นหลังให้ดูหรู */
-}
-
-/* กล่องเนื้อหาข้างใน */
-.modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px; /* ความกว้างสูงสุด */
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: zoomIn 0.3s; /* เอฟเฟกต์เด้งขึ้นมา */
-}
-
-/* การจัดวางรูปและข้อความใน Popup */
-.modal-body {
-    text-align: center;
-}
-
-.modal-body img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #007bff;
-    margin-bottom: 20px;
-}
-
-.modal-text h2 {
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.more-info {
-    margin-top: 15px;
-    color: #555;
-    font-style: italic;
-    background: #f0f8ff;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-/* ปุ่มกากบาท (Close Button) */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #aaa;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.close-btn:hover {
-    color: #000;
-}
-
-/* เอฟเฟกต์ตอนเด้งขึ้นมา */
-@keyframes zoomIn {
-    from {transform: scale(0.7); opacity: 0;}
-    to {transform: scale(1); opacity: 1;}
-}
-
-/* =========================================
-   11. ส่วนเสริมหน้า Species (หมวดหมู่ & ปุ่ม)
-   ========================================= */
-
-/* กล่องรวมปุ่มหมวดหมู่ */
-.category-filters {
-    text-align: center;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap; /* ให้ปุ่มขึ้นบรรทัดใหม่ถ้าจอเล็ก */
-}
-
-/* ดีไซน์ปุ่มหมวดหมู่ */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
 .filter-btn {
-    background-color: white;
-    border: 2px solid #ddd;
-    border-radius: 30px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-family: 'Prompt', sans-serif;
-    font-size: 0.95rem;
-    color: #555;
-    transition: all 0.3s;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-family: var(--font);
+  font-size: .9rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all .2s;
+}
+.filter-btn:hover { border-color: var(--teal-500); color: var(--teal-700); }
+.filter-btn.active { background: var(--teal-700); color: #fff; border-color: var(--teal-700); }
+.result-count { font-size: .85rem; color: var(--muted); }
+
+/* ============================== 12. SPECIES DETAIL ============== */
+.detail-hero {
+  background: linear-gradient(120deg, var(--teal-800), var(--teal-900));
+  color: #fff;
+  padding: 34px 0 40px;
+}
+.detail-hero .breadcrumb { color: #bfe0e4; }
+.detail-top { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: center; }
+.detail-figure {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid rgba(255,255,255,.14);
+  background: var(--teal-700);
+}
+.detail-figure img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.detail-intro h1 { color: #fff; font-size: 1.7rem; margin-bottom: 4px; }
+.detail-intro .sci { font-style: italic; color: #cdeaee; margin-bottom: 12px; }
+.detail-intro .tagline { color: #e7f5f6; font-weight: 300; margin-bottom: 16px; }
+.detail-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.detail-meta .chip { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.3); }
+
+.detail-body { display: grid; grid-template-columns: 1fr; gap: 26px; }
+
+.quick-facts {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.quick-facts h3 {
+  background: var(--teal-050);
+  padding: 14px 18px;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--teal-100);
+  color: var(--teal-800);
+}
+.quick-facts dl { padding: 6px 18px 14px; }
+.quick-facts .row {
+  display: flex; justify-content: space-between; gap: 14px;
+  padding: 11px 0; border-bottom: 1px dashed var(--line);
+}
+.quick-facts .row:last-child { border-bottom: none; }
+.quick-facts dt { color: var(--muted); font-size: .88rem; flex-shrink: 0; }
+.quick-facts dd { text-align: right; font-weight: 400; color: var(--ink); font-size: .9rem; }
+
+.status-banner {
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex; gap: 12px; align-items: flex-start;
+  border: 1px solid;
+  margin-bottom: 4px;
+}
+.status-banner .ic { font-size: 1.4rem; line-height: 1; }
+.status-banner strong { display: block; margin-bottom: 2px; }
+.status-banner.level-safe { background: #e9f8ef; border-color: #bfe6cd; color: #185c37; }
+.status-banner.level-critical, .status-banner.level-endangered {
+  background: #fdecef; border-color: #f3c4cd; color: #7e1524;
+}
+.status-banner.level-vuln, .status-banner.level-near {
+  background: #fdf1e3; border-color: #f2d3ac; color: #8a4d12;
 }
 
-.filter-btn:hover {
-    border-color: #007bff;
-    color: #007bff;
+.content-block { margin-bottom: 22px; }
+.content-block h2 {
+  font-size: 1.22rem;
+  padding-left: 14px;
+  border-left: 4px solid var(--teal-500);
+  margin-bottom: 10px;
+}
+.content-block p { color: var(--ink-soft); }
+
+.facts-box {
+  background: var(--gold-100);
+  border: 1px solid #f0e0b0;
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.facts-box h3 { color: var(--gold-600); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.facts-box ul { list-style: none; display: grid; gap: 10px; }
+.facts-box li { position: relative; padding-left: 26px; color: #6a5312; font-size: .95rem; }
+.facts-box li::before { content: "🐟"; position: absolute; left: 0; top: 0; }
+
+.detail-nav {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line);
 }
 
-/* ปุ่มที่ถูกกดอยู่ (Active) */
-.filter-btn.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-    box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+/* ============================== 13. KNOWLEDGE ================== */
+.article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 18px;
+}
+.article h3 { font-size: 1.18rem; margin-bottom: 8px; color: var(--teal-800); display: flex; gap: 10px; align-items: baseline; }
+.article h3 .num {
+  flex-shrink: 0; font-size: .85rem; color: #fff; background: var(--teal-600);
+  width: 26px; height: 26px; border-radius: 8px; display: inline-grid; place-items: center;
+}
+.article p { color: var(--ink-soft); margin-bottom: 10px; }
+.article ul { padding-left: 20px; color: var(--ink-soft); }
+.article li { margin-bottom: 6px; }
+
+.video-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.video-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s, box-shadow .25s;
+}
+.video-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+.video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-info { padding: 16px 18px 18px; }
+.video-info h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.video-info p { color: var(--ink-soft); font-size: .9rem; }
+
+.glossary { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.term {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 16px 18px;
+}
+.term dt { font-weight: 600; color: var(--teal-800); margin-bottom: 4px; }
+.term dd { color: var(--ink-soft); font-size: .92rem; }
+
+/* ============================== 14. ABOUT / TEAM =============== */
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.team-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--teal-100); }
+.team-avatar {
+  width: 104px; height: 104px; margin: 0 auto 14px;
+  border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--teal-100);
+  box-shadow: var(--shadow-sm);
+}
+.team-card h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.team-role {
+  display: inline-block; font-size: .78rem; font-weight: 500;
+  color: var(--teal-700); background: var(--teal-050);
+  border: 1px solid var(--teal-100);
+  padding: 3px 12px; border-radius: 999px; margin-bottom: 8px;
+}
+.team-duty { font-size: .85rem; color: var(--muted); }
+
+.info-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 28px 24px;
+}
+.info-panel h2 { font-size: 1.35rem; margin-bottom: 16px; }
+.objective { display: grid; gap: 12px; }
+.objective li {
+  list-style: none; display: flex; gap: 12px; align-items: flex-start;
+  color: var(--ink-soft);
+}
+.objective li .n {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px;
+  background: var(--teal-700); color: #fff; font-size: .85rem;
+  display: grid; place-items: center; font-weight: 600;
 }
 
-/* ป้ายกำกับเล็กๆ บนการ์ด (Badge) */
-.badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    color: white;
-    margin-bottom: 10px;
-    margin-right: 5px;
+/* Modal */
+.modal {
+  display: none;
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(6,51,58,.55);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  align-items: center; justify-content: center;
+}
+.modal.open { display: flex; }
+.modal-card {
+  background: #fff; border-radius: var(--radius-lg);
+  width: 100%; max-width: 440px; padding: 30px 26px;
+  position: relative; text-align: center;
+  box-shadow: var(--shadow-lg);
+  animation: pop .28s ease;
+}
+@keyframes pop { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal-card img {
+  width: 130px; height: 130px; border-radius: 50%;
+  object-fit: cover; margin: 0 auto 16px;
+  border: 5px solid var(--teal-100);
+}
+.modal-card h2 { font-size: 1.3rem; margin-bottom: 6px; }
+.modal-quote {
+  margin-top: 16px; font-style: italic; color: var(--ink-soft);
+  background: var(--teal-050); border-radius: 12px; padding: 12px 14px; font-size: .9rem;
+}
+.modal-close {
+  position: absolute; top: 12px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: none; background: var(--surface-2); color: var(--ink-soft);
+  font-size: 1.3rem; cursor: pointer; line-height: 1;
+}
+.modal-close:hover { background: var(--line); color: var(--ink); }
+
+/* ============================== 15. FOOTER ==================== */
+.site-footer { background: var(--teal-900); color: #cfe4e6; margin-top: 10px; }
+.footer-grid {
+  display: grid; grid-template-columns: 1fr; gap: 28px;
+  padding: 44px 18px 30px;
+}
+.footer-brand { color: #fff; font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
+.footer-about p { font-size: .92rem; color: #a9cace; font-weight: 300; }
+.footer-nav h4, .footer-contact h4 { color: #fff; font-size: 1rem; margin-bottom: 12px; }
+.footer-nav ul, .footer-contact ul { list-style: none; display: grid; gap: 9px; }
+.footer-nav a { color: #bcd8db; font-size: .92rem; }
+.footer-nav a:hover { color: #fff; }
+.footer-contact li { font-size: .92rem; color: #a9cace; }
+.footer-bar { background: rgba(0,0,0,.22); border-top: 1px solid rgba(255,255,255,.08); }
+.footer-bar-inner {
+  display: flex; flex-direction: column; gap: 4px; text-align: center;
+  padding: 16px 18px;
+}
+.footer-org { color: #fff; font-weight: 500; font-size: .95rem; }
+.footer-copy { color: #8fb3b7; font-size: .82rem; }
+
+/* ============================== 16. EXTRAS ================== */
+.back-to-top {
+  position: fixed; right: 18px; bottom: 18px; z-index: 900;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: none; background: var(--teal-700); color: #fff;
+  font-size: 1.3rem; cursor: pointer;
+  box-shadow: var(--shadow-md);
+  opacity: 0; transform: translateY(16px) scale(.8);
+  transition: opacity .25s, transform .25s, background .2s;
+  pointer-events: none;
+}
+.back-to-top.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.back-to-top:hover { background: var(--teal-800); }
+
+[data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+[data-reveal].revealed { opacity: 1; transform: none; }
+
+/* CTA band */
+.cta-band {
+  background: linear-gradient(120deg, var(--gold-500), var(--gold-400));
+  border-radius: var(--radius-lg);
+  padding: 34px 26px;
+  text-align: center;
+  color: #4a3608;
+  box-shadow: var(--shadow-md);
+}
+.cta-band h2 { color: #3a2b06; font-size: 1.5rem; margin-bottom: 10px; }
+.cta-band p { color: #5a4410; margin-bottom: 20px; }
+
+/* Notice / conservation callout */
+.notice {
+  background: #fdecef; border: 1px solid #f3c4cd; color: #7e1524;
+  border-radius: var(--radius); padding: 18px 20px; display: flex; gap: 12px;
+}
+.notice .ic { font-size: 1.4rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  [data-reveal] { opacity: 1; transform: none; }
 }
 
-.badge.green { background-color: #28a745; } /* สีเขียว */
-.badge.blue { background-color: #17a2b8; } /* สีฟ้า */
-.badge.yellow { background-color: #ffc107; color: #333; } /* สีเหลือง */
+/* ============================== 17. RESPONSIVE ============== */
+@media (min-width: 600px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .species-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(4, 1fr); }
+  .glossary { grid-template-columns: repeat(2, 1fr); }
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 2.5rem; }
+  .page-hero h1 { font-size: 2rem; }
+}
 
-/* =========================================
-   12. การแสดงผลบนมือถือ (Mobile Responsive)
-   ========================================= */
+@media (min-width: 900px) {
+  body { font-size: 16.5px; }
+  .nav-toggle { display: none; }
+  .nav-links {
+    display: flex; flex-direction: row; position: static;
+    background: transparent; border: none; box-shadow: none;
+    padding: 0; gap: 4px;
+  }
+  .nav-link { padding: 9px 16px; }
+  .section { padding: 68px 0; }
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+  .species-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero { min-height: 520px; }
+  .hero h1 { font-size: 2.9rem; }
+  .hero p { font-size: 1.15rem; }
+  .section-head h2 { font-size: 2rem; }
 
-/* เมื่อหน้าจอเล็กกว่า 768px (แท็บเล็ตและมือถือ) */
-@media screen and (max-width: 768px) {
+  .detail-top { grid-template-columns: 1.05fr 1fr; gap: 34px; }
+  .detail-body { grid-template-columns: 300px 1fr; align-items: start; }
+  .detail-body .detail-main { order: 2; }
+  .detail-body .detail-side { order: 1; position: sticky; top: 90px; }
+  .toolbar { flex-direction: row; align-items: center; justify-content: space-between; }
+  .toolbar .search-box { width: 320px; }
+}
 
-    /* 1. ปรับเมนู (Navbar) ให้เรียงลงมาแนวตั้ง */
-    .navbar .container {
-        flex-direction: column; /* เปลี่ยนแนวนอนเป็นแนวตั้ง */
-        padding-bottom: 10px;
-    }
-
-    .nav-links {
-        flex-direction: column; /* ลิงก์เรียงลงมา */
-        gap: 15px; /* ระยะห่างระหว่างบรรทัด */
-        margin-top: 20px; /* เว้นระยะห่างจากโลโก้ */
-        width: 100%; /* ให้กว้างเต็มจอ */
-        text-align: center; /* จัดตัวหนังสือกลาง */
-        background-color: #f8f9fa; /* ใส่สีพื้นหลังเมนูหน่อยให้ดูแยกส่วน */
-        padding: 15px;
-        border-radius: 10px;
-    }
-
-    /* 2. ปรับขนาดตัวหนังสือหน้าปก (Hero) ให้เล็กลง */
-    .hero h1 {
-        font-size: 2rem; /* ลดขนาดจาก 3rem */
-    }
-    
-    .hero p {
-        font-size: 1rem;
-        padding: 0 20px; /* เพิ่มขอบข้างไม่ให้ตัวหนังสือชิดจอเกินไป */
-    }
-
-    /* 3. ปรับปุ่มหมวดหมู่ให้กดง่ายขึ้นในมือถือ */
-    .category-filters {
-        gap: 8px; /* ลดช่องว่าง */
-    }
-    
-    .filter-btn {
-        width: 48%; /* ให้ปุ่มเรียงกันแถวละ 2 ปุ่ม */
-        font-size: 0.85rem; /* ลดขนาดตัวอักษรนิดนึง */
-        padding: 8px 10px;
-    }
-
-    /* 4. ปรับตารางปลา (Fish Grid) ให้แสดงผลเต็มความกว้าง */
-    .fish-grid {
-        grid-template-columns: 1fr; /* บังคับให้เหลือ 1 คอลัมน์ (เรียงเดี่ยว) */
-        gap: 20px;
-    }
-    
-    .fish-card {
-        max-width: 100%; /* ให้การ์ดกว้างเต็มจอ */
-    }
-
-    /* 5. ปรับส่วนผู้จัดทำ (About Us) */
-    .team-grid {
-        flex-direction: column; /* เรียงลงมาแนวตั้ง */
-        align-items: center; /* จัดให้อยู่ตรงกลาง */
-    }
-
-    /* 6. ปรับ Popup (Modal) ให้ไม่ล้นจอ */
-    .modal-content {
-        width: 95%; /* ให้กว้างเกือบเต็มจอ */
-        margin: 10px;
-        padding: 20px;
-    }
+@media (min-width: 1100px) {
+  .glossary { grid-template-columns: repeat(3, 1fr); }
 }

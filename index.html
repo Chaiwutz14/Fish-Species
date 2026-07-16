@@ -1,108 +1,182 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สายพันธุ์ปลาน้ำจืดไทย</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คลังความรู้ปลาน้ำจืดไทย | สายพันธุ์ ระบบนิเวศ และการอนุรักษ์</title>
+  <meta name="description" content="แหล่งเรียนรู้ออนไลน์เกี่ยวกับสายพันธุ์ปลาน้ำจืดของไทย ระบบนิเวศแหล่งน้ำ และการอนุรักษ์สัตว์น้ำ เผยแพร่ฟรีเพื่อการศึกษาแก่ประชาชนทุกวัย">
+  <meta name="theme-color" content="#0a4a54">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
+  <div id="site-nav"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="container hero-content">
+      <span class="hero-eyebrow">🌊 สื่อการเรียนรู้เพื่อการอนุรักษ์สัตว์น้ำไทย</span>
+      <h1>เรียนรู้และอนุรักษ์<br>ปลาน้ำจืดของไทย</h1>
+      <p>รวมข้อมูลสายพันธุ์ปลาน้ำจืด ลักษณะ ถิ่นอาศัย การสืบพันธุ์ คุณค่าทางเศรษฐกิจ
+         และสถานะการอนุรักษ์ อย่างครบถ้วน เข้าใจง่าย เพื่อทุกคนที่รักสายน้ำไทย</p>
+      <div class="hero-actions">
+        <a href="species.html" class="btn btn-gold">🐟 ดูสายพันธุ์ปลาทั้งหมด</a>
+        <a href="news.html" class="btn btn-ghost-light">คลังความรู้ &amp; วิดีโอ</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="section section--tight">
     <div class="container">
-        <a href="index.html" class="logo">
-            <img src="images/" alt="Home"> 
+      <div class="stats-grid" data-reveal>
+        <div class="stat">
+          <div class="stat-num">1,200<span class="unit">+</span></div>
+          <div class="stat-label">ชนิดปลาน้ำจืดที่พบในไทย</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">25</div>
+          <div class="stat-label">ลุ่มน้ำสายหลักทั่วประเทศ</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">สายพันธุ์เด่นในคลังความรู้</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100<span class="unit">%</span></div>
+          <div class="stat-label">เผยแพร่ฟรีเพื่อการศึกษา</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INTRO ===================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">มรดกแห่งสายน้ำ</span>
+        <h2>ทำไมต้องรู้จักปลาน้ำจืดไทย</h2>
+        <p>ประเทศไทยตั้งอยู่ในเขตร้อนชื้น มีลุ่มน้ำสายหลักหลายสาย ทั้งเจ้าพระยา แม่กลอง ท่าจีน โขง
+           และลุ่มน้ำภาคใต้ ทำให้มีความหลากหลายของปลาน้ำจืดสูงเป็นลำดับต้น ๆ ของโลก
+           การเข้าใจเรื่องปลา คือการเข้าใจ “ชีวิต” ของแม่น้ำ</p>
+        <div class="divider-fish"></div>
+      </div>
+
+      <div class="card-grid" data-reveal>
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🌊</div>
+          <h3>สมดุลระบบนิเวศ</h3>
+          <p>ปลาน้ำจืดเป็นกุญแจของห่วงโซ่อาหาร ช่วยควบคุมพืชน้ำ แมลง และเป็นอาหารของสัตว์อื่น
+             ความสมบูรณ์ของปลาสะท้อนคุณภาพน้ำของทั้งลุ่มน้ำ</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🍲</div>
+          <h3>เศรษฐกิจและวิถีชีวิต</h3>
+          <p>ปลาเป็นแหล่งโปรตีนราคาย่อมเยาคู่ครัวไทยมาแต่อดีต ทั้งการประมงพื้นบ้าน การเพาะเลี้ยง
+             และการส่งออก สร้างรายได้และการจ้างงานจำนวนมาก</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🛡️</div>
+          <h3>สถานะการอนุรักษ์</h3>
+          <p>ปลาไทยหลายชนิด เช่น ปลาบึกและปลากระโห้ กำลังใกล้สูญพันธุ์อย่างยิ่ง จากการสร้างเขื่อน
+             มลพิษ และการจับเกินขนาด การเรียนรู้คือก้าวแรกของการอนุรักษ์</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CATEGORIES ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">สำรวจตามหมวดหมู่</span>
+        <h2>เลือกกลุ่มปลาที่สนใจ</h2>
+        <p>จัดกลุ่มสายพันธุ์เพื่อให้ค้นหาและเรียนรู้ได้ตรงความต้องการ</p>
+        <div class="divider-fish"></div>
+      </div>
+      <div class="card-grid" data-reveal>
+        <a class="feature cat-link" href="species.html?cat=economic">
+          <div class="feature-icon" aria-hidden="true">🐟</div>
+          <h3>ปลาเศรษฐกิจ</h3>
+          <p>ปลาที่นิยมเพาะเลี้ยงและบริโภค เช่น ปลานิล ปลาดุก ปลาช่อน ปลาตะเพียน</p>
         </a>
-        <ul class="nav-links">
-            <li><a href="index.html">หน้าแรก</a></li>
-            <li><a href="species.html">ข้อมูลสายพันธุ์</a></li>
-            <li><a href="news.html">ข่าวสาร</a></li>
-            <li><a href="about.html">ผู้จัดทำ</a></li>
-        </ul>
+        <a class="feature cat-link" href="species.html?cat=rare">
+          <div class="feature-icon" aria-hidden="true">🛡️</div>
+          <h3>ปลาหายาก / อนุรักษ์</h3>
+          <p>ปลาที่ใกล้สูญพันธุ์และต้องการการปกป้อง เช่น ปลาบึก ปลากระโห้</p>
+        </a>
+        <a class="feature cat-link" href="species.html?cat=native">
+          <div class="feature-icon" aria-hidden="true">🌿</div>
+          <h3>ปลาพื้นเมืองไทย</h3>
+          <p>สายพันธุ์ดั้งเดิมของแหล่งน้ำไทยที่ผูกพันกับวิถีชีวิตและวัฒนธรรม</p>
+        </a>
+      </div>
     </div>
-</nav>
+  </section>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>สายพันธุ์ปลาน้ำจืดยอดนิยม</h1> 
-            <a href="species.html" class="btn-primary">ดูสายพันธุ์ปลาทั้งหมด</a>
-        </div>
-    </header>
-
-    <section class="info-section">
-        <div class="container">
-            <div class="info-header">
-                <h2>มรดกแห่งสายน้ำไทย</h2>
-                <p>
-                    ประเทศไทยตั้งอยู่ในเขตร้อนชื้น มีลุ่มน้ำสายหลักที่สำคัญหลายสาย เช่น แม่น้ำเจ้าพระยา แม่น้ำโขง และแม่น้ำตาปี 
-                    ทำให้มีความหลากหลายทางชีวภาพของปลาน้ำจืดสูงเป็นลำดับต้นๆ ของโลก 
-                    การศึกษาเรื่องพันธุ์ปลาจึงไม่ใช่แค่เรื่องของสัตว์น้ำ แต่คือการทำความเข้าใจ "ชีวิต" ของแม่น้ำ
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-box">
-                    <div class="icon">🌊</div>
-                    <h3>สมดุลระบบนิเวศ</h3>
-                    <p>ปลาน้ำจืดคือกุญแจสำคัญของห่วงโซ่อาหาร ช่วยควบคุมประชากรพืชน้ำและแมลง รวมถึงเป็นอาหารของสัตว์นักล่าอื่นๆ การลดลงของปลาอาจส่งผลกระทบต่อคุณภาพน้ำโดยรวม</p>
-                </div>
-
-                <div class="feature-box">
-                    <div class="icon">🍲</div>
-                    <h3>เศรษฐกิจและวิถีชีวิต</h3>
-                    <p>ปลาเป็นแหล่งโปรตีนราคาถูกและหาได้ง่ายคู่ครัวไทยมาตั้งแต่อดีต อีกทั้งยังสร้างรายได้มหาศาลให้กับประเทศ ทั้งจากการประมงพื้นบ้านและการส่งออกปลาสวยงาม</p>
-                </div>
-
-                <div class="feature-box">
-                    <div class="icon">⚠️</div>
-                    <h3>สถานะการอนุรักษ์</h3>
-                    <p>ปัจจุบันปลาไทยหลายชนิด เช่น "ปลาบึก" หรือ "ปลาสวาย" กำลังเสี่ยงต่อการสูญพันธุ์ เนื่องจากการสร้างเขื่อน มลพิษทางน้ำ และการจับปลาเกินขนาด</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container fish-section">
-        <h2>สายพันธุ์แนะนำ</h2>
-        <div class="fish-grid">
-            <div class="fish-card">
-                <img src="images/ปลาตะเพียน.jpg" alt="ปลาตะเพียน">
-                <div class="card-info">
-                    <h3>ปลาตะเพียน</h3>
-                    <p>ชื่อวิทยาศาสตร์: Barbonymus gonionotus</p>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
-
-            <div class="fish-card">
-                <img src="images/ปลากระโห้.jfif" alt="ปลากระโห้"> 
-                <div class="card-info">
-                    <h3>ปลากระโห้</h3>
-                    <p>ชื่อวิทยาศาสตร์: Catlocarpio siamensis</p>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
-             <div class="fish-card">
-                <img src="images/ปลาบึก.jfif" alt="ปลาบึก">
-                <div class="card-info">
-                    <h3>ปลาบึก</h3>
-                    <p>ชื่อวิทยาศาสตร์: Pangasianodon gigas</p>
-                    <a href="#" class="btn-small">ดูรายละเอียด</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <footer class="modern-footer">
+  <!-- ===================== FEATURED SPECIES ===================== -->
+  <section class="section section--alt">
     <div class="container">
-        <div class="footer-info">
-            <h3>🐟 สายพันธุ์ปลาน้ำจืดยอดนิยม</h3>
-            <p>🏫 ศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอเมืองพัทลุง</p>
-        </div>
-        
+      <div class="section-head" data-reveal>
+        <span class="kicker">สายพันธุ์แนะนำ</span>
+        <h2>รู้จักปลาเด่นของไทย</h2>
+        <p>คัดสรรสายพันธุ์ที่น่าสนใจ พร้อมข้อมูลเชิงลึกในแต่ละชนิด</p>
+        <div class="divider-fish"></div>
+      </div>
+      <div class="species-grid" id="featured-grid" data-reveal></div>
+      <div class="text-center" style="margin-top:30px">
+        <a href="species.html" class="btn btn-primary">ดูสายพันธุ์ทั้งหมด →</a>
+      </div>
     </div>
-</footer>
+  </section>
 
+  <!-- ===================== CONSERVATION CTA ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band" data-reveal>
+        <h2>ร่วมกันอนุรักษ์ปลาน้ำจืดไทย 🐟</h2>
+        <p>ไม่จับปลาในฤดูวางไข่ · ไม่ปล่อยสัตว์น้ำต่างถิ่น · รักษาความสะอาดแหล่งน้ำ · เรียนรู้และบอกต่อ</p>
+        <a href="news.html" class="btn btn-outline">อ่านแนวทางการอนุรักษ์</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* แสดงสายพันธุ์แนะนำ 3 ชนิดแรกในหน้าแรก */
+    (function () {
+      var grid = document.getElementById("featured-grid");
+      if (!grid || !window.FISH_DATA) return;
+      grid.innerHTML = FISH_DATA.slice(0, 3).map(function (f) {
+        var st = STATUS_LABELS[f.statusLevel];
+        var chips = f.categories.map(function (c) {
+          var cat = CATEGORY_LABELS[c];
+          return cat ? '<span class="chip ' + cat.cls + '">' + cat.icon + " " + cat.label + "</span>" : "";
+        }).join("");
+        return '' +
+          '<article class="species-card">' +
+            '<a class="species-media" href="species-detail.html?id=' + f.id + '" aria-label="' + f.name + '">' +
+              '<span class="species-status ' + st.cls + '">' + st.label + "</span>" +
+              '<img src="' + f.image + '" alt="' + f.name + " (" + f.nameEn + ')" loading="lazy">' +
+            "</a>" +
+            '<div class="species-body">' +
+              "<h3>" + f.name + "</h3>" +
+              '<p class="species-sci">' + f.sci + "</p>" +
+              '<p class="species-tagline">' + f.tagline + "</p>" +
+              '<div class="chips">' + chips + "</div>" +
+              '<div class="species-cta">' +
+                '<a class="species-link" href="species-detail.html?id=' + f.id + '">ดูรายละเอียด →</a>' +
+              "</div>" +
+            "</div>" +
+          "</article>";
+      }).join("");
+    })();
+  </script>
 </body>
 </html>

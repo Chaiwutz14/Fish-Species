@@ -259,7 +259,16 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; color: var(--teal-900); }
   margin-bottom: 16px;
 }
 .hero p { font-size: 1.05rem; color: #e8f4f5; margin-bottom: 28px; font-weight: 300; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+/* ปุ่ม Hero: อยู่บรรทัดเดียวกันเสมอ และย่อขนาดอัตโนมัติถ้าที่ไม่พอ */
+.hero-actions { display: flex; flex-wrap: nowrap; gap: 10px; }
+.hero-actions .btn {
+  flex: 1 1 0;
+  min-width: 0;
+  justify-content: center;
+  padding: 12px 12px;
+  font-size: clamp(0.72rem, 3.3vw, 1rem);
+  white-space: nowrap;
+}
 
 /* Hero ย่อย (หน้ารอง) */
 .page-hero {
@@ -718,6 +727,9 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; color: var(--teal-900); }
   .video-grid { grid-template-columns: repeat(2, 1fr); }
   .hero h1 { font-size: 2.5rem; }
   .page-hero h1 { font-size: 2rem; }
+  /* จอกว้างพอแล้ว: คืนปุ่ม Hero เป็นขนาดปกติ ไม่ยืดเต็มความกว้าง */
+  .hero-actions { gap: 12px; }
+  .hero-actions .btn { flex: 0 0 auto; padding: 13px 26px; font-size: 1rem; }
 }
 
 @media (min-width: 900px) {
